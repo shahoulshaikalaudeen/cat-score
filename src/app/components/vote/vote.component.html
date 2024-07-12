@@ -1,0 +1,11 @@
+<div *ngIf="cats.length === 0">Loading cats...</div>
+<div class="cats-container">
+  <div class="cat-card" *ngFor="let cat of cats">
+    <img [src]="cat.url" alt="Cat image" class="cat-image">
+    <div class="button-container">
+      <button (click)="voteCat(cat, 1)">Upvote</button>
+      <button (click)="voteCat(cat, -1)">Downvote</button>
+    </div>
+    <p>Score: {{ cat.score }}</p>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<h2 style="text-align: center;">Cat Scores</h2>
+<div *ngIf="cats.length === 0">Loading cats...</div>
+<div class="cat-container">
+  <div *ngFor="let cat of displayedCats" class="cat-item">
+    <img [src]="cat.url" alt="Cat image">
+    <p>Score: {{ cat.score }}</p>
+  </div>
+</div>
+<div class="button-container">
+  <button *ngIf="currentIndex < cats.length" (click)="loadMoreCats()">
+    Voir les plus beaux chats ({{ cats.length - currentIndex }})
+  </button>
+</div>
