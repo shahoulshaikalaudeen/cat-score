@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { CatListComponent } from './components/cat-list/cat-list.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
-    NgxPaginationModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
