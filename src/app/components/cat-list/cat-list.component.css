@@ -50,3 +50,6 @@ h2 {
 .button-container button:hover {
   background-color: #0056b3;
 }
+.loading {
+  text-align: center;
+}
