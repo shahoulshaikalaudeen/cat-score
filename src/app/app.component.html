@@ -1,7 +1,9 @@
 
-CATCH MATCH
-<div class="loading" *ngIf="cats.length === 0">Loading cats...</div>
-<div *ngIf="cats.length > 0">
-  <app-cat-list [cats]="cats"></app-cat-list>
-  <app-vote [cats]="cats" (catVoted)="updateCatScore($event)"></app-vote>
-</div>
+<mat-tab-group>
+  <mat-tab label="Vote" *ngIf="cats.length > 0">
+    <app-vote [cats]="cats"></app-vote>
+  </mat-tab>
+  <mat-tab label="Cat List" *ngIf="cats.length > 0">
+    <app-cat-list [cats]="cats"></app-cat-list>
+  </mat-tab>
+</mat-tab-group>

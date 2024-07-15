@@ -11,21 +11,9 @@ export class AppComponent {
 
   constructor(private catService: CatService) { }
 
-  ngOnInit(): void {
-    this.loadCats();
-  }
-
-  loadCats(): void {
-    this.catService.getAllCats().subscribe(data => {
-      this.cats = data;
+  ngOnInit() {
+    this.catService.getAllCats().subscribe((cats: Cat[]) => {
+      this.cats = cats;
     });
-  }
-
-  updateCatScore(updatedCat: Cat): void {
-    const index = this.cats.findIndex(cat => cat.id === updatedCat.id);
-    if (index !== -1) {
-      this.cats[index].score = updatedCat.score;
-      this.cats.sort((a, b) => b.score - a.score);
-    }
   }
 }

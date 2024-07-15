@@ -1,9 +1,8 @@
-<div class="cats-container">
-  <div class="cat-card" *ngFor="let cat of cats">
+<div class="cats-container" *ngIf="competingCats.length === 2">
+  <div class="cat-card" *ngFor="let cat of competingCats">
     <img [src]="cat.url" alt="Cat image" class="cat-image">
     <div class="button-container">
-      <button (click)="voteCat(cat, 1)">Upvote</button>
-      <button (click)="voteCat(cat, -1)">Downvote</button>
+      <button (click)="voteCat(cat, 1)">Vote for this Cat</button>
     </div>
     <p>Score: {{ cat.score }}</p>
   </div>
