@@ -1,5 +1,7 @@
-<nav>
-  <a routerLink="/vote" routerLinkActive="active">Vote</a>
-  <a routerLink="/scores" routerLinkActive="active">Scores</a>
-</nav>
-<router-outlet></router-outlet>
+
+CATCH MATCH
+<div class="loading" *ngIf="cats.length === 0">Loading cats...</div>
+<div *ngIf="cats.length > 0">
+  <app-cat-list [cats]="cats"></app-cat-list>
+  <app-vote [cats]="cats" (catVoted)="updateCatScore($event)"></app-vote>
+</div>

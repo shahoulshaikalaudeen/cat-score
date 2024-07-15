@@ -1,30 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { CatService, Cat } from '../../services/cat.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Cat, CatService } from '../../services/cat.service';
 
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
   styleUrls: ['./vote.component.css']
 })
-export class VoteComponent implements OnInit {
+export class VoteComponent {
 
-  cats: Cat[] = [];
+  @Input() cats: Cat[] = [];
+  @Output() catVoted = new EventEmitter<Cat>();
 
   constructor(private catService: CatService) { }
-
-  ngOnInit(): void {
-    this.loadCats();
-  }
-
-  loadCats(): void {
-    this.catService.getAllCats().subscribe(data => {
-      this.cats = data;
-    });
-  }
 
   voteCat(cat: Cat, vote: number): void {
     this.catService.voteCat(cat.id, vote).subscribe(() => {
       cat.score += vote;
+      this.catVoted.emit(cat);
     });
   }
 }

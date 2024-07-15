@@ -1,4 +1,3 @@
-<div class="loading" *ngIf="cats.length === 0">Loading cats...</div>
 <div class="cats-container">
   <div class="cat-card" *ngFor="let cat of cats">
     <img [src]="cat.url" alt="Cat image" class="cat-image">
